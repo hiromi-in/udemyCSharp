@@ -97,18 +97,18 @@ public class Program
 		else if (km < speed)
 		{
 		var demerit_point = (speed-km)/5;
-		if (demerit_point == 0)
-		{
+		  if (demerit_point == 0)
+	  	  {
 			Console.WriteLine("Ok!");
-		}
-		else
-		{
-		Console.WriteLine("Demerit point: {0}", demerit_point );
+		  }
+		  else
+		  {
+		  Console.WriteLine("Demerit point: {0}", demerit_point );
 			if (demerit_point > 12)
 			{
 			Console.WriteLine("It is above 12! License Suspended :(");
 			}
-		}
+		  }
 		}
 	}
 }
