@@ -45,3 +45,31 @@ public class Program
 		}
 	}
 }
+
+//Q3
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Type the width and height of an image: ");
+		Console.Write("Width: ");
+		var width = Convert.ToInt32(Console.ReadLine());
+		Console.Write("Height: ");
+		var height = Convert.ToInt32(Console.ReadLine());
+		
+		if (width > height)
+		{
+		Console.WriteLine("The image is landscape!");
+		}
+		else if (width < height)
+		{
+		Console.WriteLine("The image is portrait!");
+		}
+		else
+		{
+		Console.WriteLine("It is a square!");	
+		}
+	}
+}
