@@ -43,3 +43,24 @@ public class Program
 		Console.WriteLine("The sum is {0} :)", count);
 	}
 }
+
+//Q3. Write a program and ask the user to enter a number. Compute the factorial of the number and print it on the console. For example, if the user enters 5, the program should calculate 5 x 4 x 3 x 2 x 1 and display it as 5! = 120.
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Type a number: ");
+		var num = Int32.Parse(Console.ReadLine());
+		var count = num;
+		
+		for (var i = num-1; i >0; i--){
+		     count *= i;
+		}
+		
+		Console.WriteLine("{0}! = {1}", num, count);
+		
+	}
+}
