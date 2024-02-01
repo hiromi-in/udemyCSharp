@@ -44,3 +44,24 @@ public class Program
 		}
     }
 }
+
+//Q2- Write a program and ask the user to enter their name. Use an array to reverse the name and then store the result in a new string. Display the reversed name on the console.
+
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+       Console.WriteLine("Type your name: ");
+	   var name = Console.ReadLine();
+	   char[] nameArray = name.ToCharArray();
+		
+		Console.WriteLine("Reversed name: ");
+		Array.Reverse(nameArray);
+   		foreach (var character in nameArray)
+			Console.Write(character);
+		
+    }
+}
