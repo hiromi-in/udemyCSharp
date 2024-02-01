@@ -95,3 +95,42 @@ public class Program
 		}
     }
 }
+
+Q4- Write a program and ask the user to continuously enter a number or type "Quit" to exit. The list of numbers may include duplicates. Display the unique numbers that the user has entered.
+
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+      var keep_going = true;
+	  var nums = new List<int>();
+	  var unique_nums = new List<int>();
+		
+		while (keep_going){
+			Console.WriteLine("Type a number or 'Quit' to quit the loop: ");
+			var new_item = Console.ReadLine();
+			
+			if (new_item == "Quit"){
+			   keep_going =false;
+			}
+			else {
+			   nums.Add(Int32.Parse(new_item));
+			}
+		}
+		
+		foreach (var number in nums){
+			if (!unique_nums.Contains(number)){
+				unique_nums.Add(number);
+			}
+		}
+		
+		unique_nums.Sort();
+		Console.Write("The unique numbers you've got are: ");
+		foreach (var n in unique_nums)
+			Console.Write(n + " ");
+		
+    }
+}
