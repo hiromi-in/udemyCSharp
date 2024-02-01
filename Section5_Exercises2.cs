@@ -64,3 +64,38 @@ public class Program
 		
 	}
 }
+
+//Q4- Write a program that picks a random number between 1 and 10. Give the user 4 chances to guess the number. If the user guesses the number, display “You won"; otherwise, display “You lost". (To make sure the program is behaving correctly, you can display the secret number on the console first.)
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Random rnd = new Random();
+		int answer = rnd.Next(1,10);
+		var keep_going = true;
+		var counter = 0;
+		
+		while (keep_going){
+			Console.WriteLine("Guess a number from 1 to 10: ");
+			var guess = Int32.Parse(Console.ReadLine());
+			
+			if (guess == answer){
+			    Console.WriteLine("You won! The correct answer was {0}. :)", answer);
+				keep_going = false;
+			}
+			else {
+				counter += 1;
+				if (counter < 4){
+					Console.WriteLine("Nope, guess again. You have {0} more tries.", 4-counter);
+				}
+				else if (counter == 4){
+					Console.WriteLine("Boo~ you lost. :( The correct answer was {0}", answer);
+					keep_going = false;
+				}
+			}
+		}
+    }
+}
