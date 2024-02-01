@@ -65,3 +65,33 @@ public class Program
 		
     }
 }
+
+Q3- Write a program and ask the user to enter 5 numbers. If a number has been previously entered, display an error message and ask the user to re-try. Once the user successfully enters 5 unique numbers, sort them and display the result on the console.
+
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+      var nums = new List<int>();	
+		
+	  while (nums.Count <5){
+		    Console.WriteLine("Type an integer: ");
+	  		var new_int = Int32.Parse(Console.ReadLine());
+		  
+		    if (nums.Contains(new_int)){
+				Console.WriteLine($"{new_int} is already in the list. Please try another one.");
+			}
+		    else {
+				nums.Add(new_int);
+			} 
+	  }
+	    nums.Sort();
+		Console.WriteLine($"Here are the numbers. I sorted them ascendingly for you :)");
+		foreach (var number in nums){
+		    Console.Write(number + " ");
+		}
+    }
+}
