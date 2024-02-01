@@ -96,7 +96,7 @@ public class Program
     }
 }
 
-Q4- Write a program and ask the user to continuously enter a number or type "Quit" to exit. The list of numbers may include duplicates. Display the unique numbers that the user has entered.
+//Q4- Write a program and ask the user to continuously enter a number or type "Quit" to exit. The list of numbers may include duplicates. Display the unique numbers that the user has entered.
 
 using System;
 using System.Collections.Generic;
@@ -132,5 +132,60 @@ public class Program
 		foreach (var n in unique_nums)
 			Console.Write(n + " ");
 		
+    }
+}
+
+//Q5- Write a program and ask the user to supply a list of comma separated numbers (e.g 5, 1, 9, 2, 10). If the list is empty or includes less than 5 numbers, display "Invalid List" and ask the user to re-try; otherwise, display the 3 smallest numbers in the list.
+
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+	   var validInvalid = true;
+	   var num_list = new List<int>();
+		
+	   while (validInvalid) {
+       
+	   Console.WriteLine("Enter a series of numbers separated by comma: ");
+       var num_input = Console.ReadLine();
+       int[] numbersArray = StringToArray(num_input);
+       
+       if (numbersArray.Length < 5){
+	       Console.WriteLine("Invalid List. Please try again with more than five numbers.");   
+	   } 
+	   else {
+	       foreach (var n in numbersArray){
+	           num_list.Add(n);
+	       }
+	       validInvalid = false;
+	   }
+	   }
+	   
+       num_list.Sort();
+	   Console.Write("Here are the three smallest numbers :) ");
+	   for (var i = 0; i < 3; i++){
+	       Console.Write(num_list[i] + " ");
+	   }
+		
+    }
+    
+    public static int[] StringToArray(string num_input){
+        string[] nums = num_input.Split(',');
+        int[] numbersArray = new int[nums.Length];
+        
+        for (int i = 0; i<nums.Length; i++){
+            if (int.TryParse(nums[i], out int number)){
+                numbersArray[i] = number;
+            }
+            else{
+                Console.WriteLine($"Error parsing element at index {i}: {nums[i]}");
+            }
+        }
+        
+        return numbersArray;
+        
     }
 }
