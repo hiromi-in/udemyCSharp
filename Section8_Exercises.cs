@@ -29,3 +29,43 @@ public class Program
 	}
 }
 
+//Q2- Write a program and ask the user to enter a few numbers separated by a hyphen. If the user simply presses Enter, without supplying an input, exit immediately; otherwise, check to see if there are duplicates. If so, display "Duplicate" on the console.
+
+using System;
+using System.Collections.Generic;
+					
+public class Program
+{
+	public static void Main()
+	{
+		 Console.WriteLine("Type numbers separated by a hyphen (e.g.5-6-7-8-9): ");
+         var answer = Console.ReadLine();
+		 var nums_list = new List<int>();
+		 var dup_list = new List<int>();
+		
+		 if (String.IsNullOrWhiteSpace(answer)){
+		 	Console.WriteLine("Exiting the program. Please type numbers.");
+		 }
+		 else{	 
+		 
+		 foreach (var num in answer.Split('-'))
+		     nums_list.Add(Convert.ToInt32(num));
+		 
+		 for (var i = 0; i < nums_list.Count; i++){
+		 	     for ( var j=i+1; j < (nums_list.Count-i); j++){
+				 	if (nums_list[i] == nums_list[j]){
+						dup_list.Add(nums_list[i]);
+						}
+				     }
+				 }
+			}
+		  if (dup_list.Count != 0 ){
+			Console.Write("Duplicated values: ");
+			  foreach (var num in dup_list)
+				  Console.Write(num + " ");
+			Console.WriteLine();
+		  	Console.WriteLine("Duplicate");
+		  }
+			
+		 }
+}
