@@ -106,3 +106,37 @@ public class Program
 			
 		 }
 }
+
+//Q4- Write a program and ask the user to enter a few words separated by a space. Use the words to create a variable name with PascalCase. For example, if the user types: "number of students", display "NumberOfStudents". Make sure that the program is not dependent on the input. So, if the user types "NUMBER OF STUDENTS", the program should still display "NumberOfStudents".
+
+using System;
+using System.Globalization;
+using System.Linq;
+using System.Collections.Generic;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Type a few words separated by a space: ");
+		var words = Console.ReadLine().Split(' ');
+		
+        // Convert the first character of each word to uppercase and the rest to lowercase
+        List<string> formattedWords = words.Select(FormatWord).ToList();
+
+        // Print the formatted words
+        foreach (string word in formattedWords)
+        {
+            Console.Write(word);
+        }
+    }
+
+    static string FormatWord(string word)
+    {
+        // Create a TextInfo object for the current culture
+        TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+
+        // Convert the first character of the word to uppercase and the rest to lowercase
+        return textInfo.ToTitleCase(word.ToLower());
+    }		
+	}
