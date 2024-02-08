@@ -140,3 +140,26 @@ public class Program
         return textInfo.ToTitleCase(word.ToLower());
     }		
 	}
+
+//Q5- Write a program and ask the user to enter an English word. Count the number of vowels (a, e, o, u, i) in the word. So, if the user enters "inadequate", the program should display 6 on the console.
+
+using System;
+			
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Enter an English word: ");
+		var word = Console.ReadLine();
+		var count = 0;
+		
+		for (var i = 0; i < word.Length; i++){
+			if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ){
+				count += 1;
+			}	
+    }		
+	Console.WriteLine("The number of vowels: {0}", count);	
+	
+	}
+}
+
