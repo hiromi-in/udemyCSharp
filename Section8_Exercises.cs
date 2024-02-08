@@ -69,3 +69,40 @@ public class Program
 			
 		 }
 }
+
+//Q3- Write a program and ask the user to enter a time value in the 24-hour time format (e.g. 19:00). A valid time should be between 00:00 and 23:59. If the time is valid, display "Ok"; otherwise, display "Invalid Time". If the user doesn't provide any values, consider it as invalid time.
+
+using System;
+using System.Collections.Generic;
+					
+public class Program
+{
+	public static void Main()
+	{
+		 Console.WriteLine("Type a time value (e.g. 19:00): ");
+         var answer = Console.ReadLine();
+		 var h_m = new List<int>();
+		 var validity = true; 
+		 
+		 if (String.IsNullOrWhiteSpace(answer)){
+			validity = false;
+		 }
+		
+		else{
+		 foreach (var num in answer.Split(':'))
+		     h_m.Add(Convert.ToInt32(num));
+			
+			if(!(h_m[0]<=23 && h_m[1] <=59)){
+				validity = false;
+			}
+		}
+		
+		 if (validity == true){
+		 	Console.WriteLine("Ok :)");
+		 }
+		 else {
+		 	Console.WriteLine("Invalid time :(");
+		 }
+			
+		 }
+}
